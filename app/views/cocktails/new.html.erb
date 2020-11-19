@@ -1,0 +1,12 @@
+<h1>New Cocktail</h1>
+<h2>Please fill out this form</h2>
+
+<div class="form-group">
+<%= simple_form_for ([@cocktail]) do |f| %>
+<%= f.input :name %>
+<%= f.submit class: "btn btn-info" %>
+
+<% end %>
+</div>
+
+<div><%= link_to 'Please take me back', cocktails_path, class: "btn btn-danger m-3" %></div>
