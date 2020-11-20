@@ -3,13 +3,17 @@
 </div>
 
 <ul>
-  <% @cocktail.doses.each do |dose| %>
-    <li>
-      <%= link_to 'Delete', dose_path(dose), method: :delete, class: 'btn btn-danger m-2' %>
-      <%= dose.description%> of <%= dose.ingredient.name %>
-    </li>
-  <% end %>
+
 </ul>
+
+<div class="cards">
+  <% @cocktail.doses.each do |dose| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      <%= dose.description%> of <%= dose.ingredient.name %>
+      <%= link_to 'Delete', dose_path(dose), method: :delete, class: 'btn btn-danger m-2' %>
+    </div>
+  <% end %>
+</div>
 
 <%= link_to 'Add new dose', new_cocktail_dose_path(@cocktail), class: 'btn btn-success' %>
 
