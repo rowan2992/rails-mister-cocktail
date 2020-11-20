@@ -8,7 +8,7 @@
 
 <div class="cards">
   <% @cocktail.doses.each do |dose| %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random)">
       <%= dose.description%> of <%= dose.ingredient.name %>
       <%= link_to 'Delete', dose_path(dose), method: :delete, class: 'btn btn-danger m-2' %>
     </div>
