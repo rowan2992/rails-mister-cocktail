@@ -1,0 +1,10 @@
+<h1>New Dose</h1>
+<h2>Please fill out this form</h2>
+
+<div class="form-group">
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.input :description %>
+  <%= f.association :ingredient %>
+  <%= f.submit class: "btn btn-info" %>
+<% end %>
+</div>
