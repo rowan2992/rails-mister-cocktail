@@ -11,6 +11,8 @@
   <% end %>
 </ul>
 
+<%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+
 <%= link_to 'Add new dose', new_cocktail_dose_path(@cocktail), class: 'btn btn-success' %>
 
 <%= link_to 'Please take me back', cocktails_path, class: "btn btn-danger m-3" %>
