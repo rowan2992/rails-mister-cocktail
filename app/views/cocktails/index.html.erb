@@ -1,3 +1,11 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1>Roao has the <strong>best cocktails</strong> for the <strong>best people</strong></h1>
+    <p>Add a cocktail, write a review or just get drunk!</p>
+    <%= link_to 'New Cocktail', new_cocktail_path, class: "btn btn-info" %>
+  </div>
+</div>
+
 <div> 
   <ul>
     <% @cocktails.each do |cocktail| %>

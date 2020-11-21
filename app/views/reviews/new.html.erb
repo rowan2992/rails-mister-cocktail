@@ -1,0 +1,11 @@
+<h1>Write a Review</h1>
+<h2>Please fill out this form</h2>
+
+<div class="form-group">
+<%= simple_form_for [@cocktail, @review] do |f| %>
+  <%= f.input :content %>
+  <%= f.input :author %>
+  <%= f.input :stars %>
+  <%= f.submit class: "btn btn-info" %>
+<% end %>
+</div>

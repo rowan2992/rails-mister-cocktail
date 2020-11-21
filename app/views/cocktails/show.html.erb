@@ -2,20 +2,28 @@
   <%= @cocktail.name %>
 </div>
 
-<ul>
-
-</ul>
-
-<div class="cards">
+<h2>Doses</h2>
+<div>
   <% @cocktail.doses.each do |dose| %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random)">
+    <div>
       <%= dose.description%> of <%= dose.ingredient.name %>
       <%= link_to 'Delete', dose_path(dose), method: :delete, class: 'btn btn-danger m-2' %>
     </div>
   <% end %>
 </div>
 
+<h2>Reviews</h2>
+<ul>
+  <% @cocktail.reviews.each do |review| %>
+    <li><%= review.content %></li>
+    <li>By <%= review.author %></li>
+    <li><%= review.stars %>/5 Stars</li>
+  <% end %>
+</ul>
+
 <%= link_to 'Add new dose', new_cocktail_dose_path(@cocktail), class: 'btn btn-success' %>
 
 <%= link_to 'Please take me back', cocktails_path, class: "btn btn-danger m-3" %>
+
+<%= link_to 'Write a review', new_cocktail_review_path(@cocktail), class: 'btn btn-info' %>
 
