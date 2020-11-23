@@ -1,29 +1,33 @@
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.hipwallpaper.com/i/49/27/wHUIXq.jpg)">
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @cocktail.photo.key%>')">
   <%= @cocktail.name %>
 </div>
-
-<h2>Doses</h2>
-<div>
-  <% @cocktail.doses.each do |dose| %>
+<div class="container">
+  <div class="row justify-content-center">
+    <h2>Doses</h2>
+  </div>
+  <div class="row justify-content-center">
     <div>
-      <%= dose.description%> of <%= dose.ingredient.name %>
-      <%= link_to 'Delete', dose_path(dose), method: :delete, class: 'btn btn-danger m-2' %>
+      <% @cocktail.doses.each do |dose| %>
+        <div>
+          <%= dose.description%> of <%= dose.ingredient.name %>
+          <%= link_to 'Delete', dose_path(dose), method: :delete, class: 'btn btn-danger m-2' %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
+  <div class="row justify-content-center">
+    <h2>Reviews</h2>
+  </div>
+  <div class="row justify-content-center">
+    <ul>
+      <% @cocktail.reviews.each do |review| %>
+        <li><%= review.content %>- <i>written with love by <%= review.author %></i> - <strong><%= review.stars %>/5 Stars</strong></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="row justify-content-center">
+    <%= link_to 'Add new dose', new_cocktail_dose_path(@cocktail), class: 'btn btn-success m-3' %>
+    <%= link_to 'Write a review', new_cocktail_review_path(@cocktail), class: 'btn btn-info m-3' %>
+    <%= link_to 'Please take me back', cocktails_path, class: "btn btn-danger m-3" %>
+  </div>
 </div>
-
-<h2>Reviews</h2>
-<ul>
-  <% @cocktail.reviews.each do |review| %>
-    <li><%= review.content %></li>
-    <li>By <%= review.author %></li>
-    <li><%= review.stars %>/5 Stars</li>
-  <% end %>
-</ul>
-
-<%= link_to 'Add new dose', new_cocktail_dose_path(@cocktail), class: 'btn btn-success' %>
-
-<%= link_to 'Please take me back', cocktails_path, class: "btn btn-danger m-3" %>
-
-<%= link_to 'Write a review', new_cocktail_review_path(@cocktail), class: 'btn btn-info' %>
-

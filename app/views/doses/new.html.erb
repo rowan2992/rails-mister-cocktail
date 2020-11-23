@@ -1,10 +1,21 @@
-<h1>New Dose</h1>
-<h2>Please fill out this form</h2>
+<div class="container">
+  <div class="row justify-content-center">
+    <h3>Add a new dose of something</h3>
+  </div>
 
-<div class="form-group">
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.input :description %>
-  <%= f.association :ingredient %>
-  <%= f.submit class: "btn btn-info" %>
-<% end %>
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div class="form-group">
+      <%= simple_form_for [@cocktail, @dose] do |f| %>
+        <%= f.input :description %>
+        <%= f.association :ingredient %>
+        <%= f.submit class: "btn btn-info" %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <%= link_to 'Please take me back', @cocktail, class: "btn btn-danger m-3" %></div>
+  </div>
 </div>
+

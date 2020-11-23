@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+<div class="banner">
   <div class="container">
     <h1>Roao has the <strong>best cocktails</strong> for the <strong>best people</strong></h1>
     <p>Add a cocktail, write a review or just get drunk!</p>
@@ -6,16 +6,27 @@
   </div>
 </div>
 
-<div> 
-  <ul>
-    <% @cocktails.each do |cocktail| %>
-      <div class="card-product">
-        <% if cocktail.photo.attached? %>
-          <%= cl_image_tag cocktail.photo.key, height: 300, width: 400, crop: :fill %>
-        <% end %>
-        <div class="card-product-infos"><h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2></div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <div> 
+        <ul>
+          <% @cocktails.each do |cocktail| %>
+            <div class="card-product">
+              <% if cocktail.photo.attached? %>
+                <%= cl_image_tag cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+              <% end %>
+              <div class="card-product-infos"><h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2></div>
+            </div>
+          <% end %>
+        </ul>
       </div>
-    <% end %>
-  </ul>
+    </div>
+  </div>
 </div>
+  
+  
+
+
+
 
